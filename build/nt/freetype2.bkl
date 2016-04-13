@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<makefile>
+	<include file="../../../uits_build/build/nt/Common.bkl"/>
+
+	<lib id="libft" template="hc-common">
+		<libname>libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE)</libname>
+		<define>Strict</define>
+		<define>_CRT_SECURE_NO_DEPRECATE</define>
+		<define>_CRT_NONSTDC_NO_DEPRECATE</define>
+		<define>FT_DEBUG_LEVEL_ERROR</define>
+		<define>FT_DEBUG_LEVEL_TRACE</define>
+		<define>FT2_BUILD_LIBRARY</define>
+		<define>UNA_PLATFORM_NT=1</define>
+		<include>..$(DIRSEP)..$(DIRSEP)include</include>
+		<headers>
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)ft2build.h
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)ftconfig.h
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)ftheader.h
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)ftmodule.h
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)ftoption.h
+			..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)ftstdlib.h
+		</headers>
+		<sources>
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftbbox.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftgxval.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftlcdfil.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftmm.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftotval.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftpatent.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftpfr.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftsynth.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)fttype1.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftwinfnt.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftxf86.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)pcf$(DIRSEP)pcf.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)pfr$(DIRSEP)pfr.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)psaux$(DIRSEP)psaux.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)pshinter$(DIRSEP)pshinter.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)psnames$(DIRSEP)psmodule.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)raster$(DIRSEP)raster.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)sfnt$(DIRSEP)sfnt.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)truetype$(DIRSEP)truetype.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)type1$(DIRSEP)type1.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)cid$(DIRSEP)type1cid.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)type42$(DIRSEP)type42.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)winfonts$(DIRSEP)winfnt.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)autofit$(DIRSEP)autofit.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)bdf$(DIRSEP)bdf.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)cff$(DIRSEP)cff.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftbase.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftbitmap.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)cache$(DIRSEP)ftcache.c
+			..$(DIRSEP)..$(DIRSEP)builds$(DIRSEP)win32$(DIRSEP)ftdebug.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftfstype.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftgasp.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftglyph.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)gzip$(DIRSEP)ftgzip.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftinit.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)lzw$(DIRSEP)ftlzw.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftstroke.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftsystem.c
+			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)smooth$(DIRSEP)smooth.c
+		</sources>
+		<sys-lib>dxguid</sys-lib>
+		<runtime-libs>$(HC_RUNTIME_DEFINE)</runtime-libs>
+		<debug-info>on</debug-info>
+		<debug-runtime-libs>$(HC_RUNTIME_DEBUG_DEFINE)</debug-runtime-libs>
+		<threading>multi</threading>
+		<postlink-command>if not exist $(RELEASE_LIB_DIR) mkdir $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE).lib $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE).pdb $(RELEASE_LIB_DIR)</postlink-command>
+	</lib>
+</makefile>
