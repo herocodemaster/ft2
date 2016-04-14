@@ -39,7 +39,7 @@ DEBUG = 1
 #  [i386,x86_64,x86,x86_amd64]
 ARCH = i386
 
-#  [vc2008,vc2003,vc6,vc2010,icc2013,vc2013]
+#  [vc2008,vc2003,vc6,vc2010,icc2013,vc2013,icc2016]
 TOOL_CHAIN = vc2008
 
 
@@ -142,6 +142,9 @@ __HCDEBUG_DEFINE_p = /DDEBUG
 !endif
 !if "$(DEBUG)" == "1"
 __HC_DEBUG_DEFINE_p = /D_DEBUG
+!endif
+!if "$(TOOL_CHAIN)" == "icc2016"
+__HC_VC2013_SDK71_DEFINE_p = /D_USING_V110_SDK71_
 !endif
 !if "$(TOOL_CHAIN)" == "vc2013"
 __HC_VC2013_SDK71_DEFINE_p = /D_USING_V110_SDK71_
