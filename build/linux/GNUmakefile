@@ -49,47 +49,48 @@ CPPDEPS = -MT$@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
 FT_CFLAGS = -DUNA_PLATFORM_LINUX=1 $(__HCDEBUG_DEFINE_p) -I../../ \
 	-DFT2_BUILD_LIBRARY -I../../include $(__HC_OPTIMIZE_ENABLE_0) \
 	-I"$(UNABASE_PATH)/unabase-$(HC_DR_DEFINE)-$(HC_DR_ARCH_DEFINE)$(HC_DR_ICC_DEFINE)/include" \
-	$(__HC_DEBUG_ENABLE_1) -D_THREAD_SAFE -pthread $(CPPFLAGS) $(CFLAGS)
+	$(__HC_DEBUG_ENABLE_1) -D_THREAD_SAFE -pthread -fPIC -DPIC \
+	$(HC_ARCH_CFLAGS_DEFINE) $(CPPFLAGS) $(CFLAGS)
 FT_OBJECTS =  \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsystem.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbbox.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgxval.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlcdfil.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftmm.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftotval.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpatent.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpfr.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsynth.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_fttype1.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftwinfnt.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftxf86.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pcf.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pfr.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psaux.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pshinter.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psmodule.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_raster.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_sfnt.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_truetype.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1cid.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type42.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_winfnt.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_autofit.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_bdf.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_cff.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbase.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbitmap.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftcache.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftfstype.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgasp.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftglyph.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgzip.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftinit.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlzw.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftstroke.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftdebug.o \
-	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_smooth.o
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsystem.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbbox.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgxval.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlcdfil.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftmm.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftotval.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpatent.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpfr.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsynth.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_fttype1.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftwinfnt.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftxf86.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pcf.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pfr.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psaux.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pshinter.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psmodule.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_raster.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_sfnt.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_truetype.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1cid.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type42.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_winfnt.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_autofit.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_bdf.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_cff.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbase.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbitmap.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftcache.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftfstype.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgasp.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftglyph.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgzip.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftinit.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlzw.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftstroke.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftdebug.o \
+	../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_smooth.o
 
 ### Conditionally set variables: ###
 
@@ -153,8 +154,44 @@ endif
 ifeq ($(ARCH),x86_amd64)
 HC_LIB64ARCH_DEFINE = 64
 endif
-ifeq ($(DEBUG),1)
-__HCDEBUG_DEFINE_p = -DCONFIG_ENABLE_DEBUG
+ifeq ($(ARCH),aarch32)
+HC_DR_ARCH_POSTFIX_DEFINE = -arm
+endif
+ifeq ($(ARCH),aarch64)
+HC_DR_ARCH_POSTFIX_DEFINE = -arm
+endif
+ifeq ($(ARCH),arm)
+HC_DR_ARCH_POSTFIX_DEFINE = -arm
+endif
+ifeq ($(ARCH),arm_64)
+HC_DR_ARCH_POSTFIX_DEFINE = -arm
+endif
+ifeq ($(ARCH),i386)
+HC_DR_ARCH_POSTFIX_DEFINE = 
+endif
+ifeq ($(ARCH),x86)
+HC_DR_ARCH_POSTFIX_DEFINE = 
+endif
+ifeq ($(ARCH),x86_64)
+HC_DR_ARCH_POSTFIX_DEFINE = 
+endif
+ifeq ($(ARCH),x86_amd64)
+HC_DR_ARCH_POSTFIX_DEFINE = 
+endif
+ifeq ($(ARCH),i386)
+HC_ARCH_CFLAGS_DEFINE = -m32
+endif
+ifeq ($(ARCH),x86)
+HC_ARCH_CFLAGS_DEFINE = -m32
+endif
+ifeq ($(ARCH),x86_64)
+HC_ARCH_CFLAGS_DEFINE = -m64
+endif
+ifeq ($(ARCH),x86_amd64)
+HC_ARCH_CFLAGS_DEFINE = -m64
+endif
+ifeq ($(DEBUG),0)
+__HCDEBUG_DEFINE_p = 
 endif
 ifeq ($(DEBUG),0)
 __HCDEBUG_DEFINE_p = 
@@ -162,8 +199,8 @@ endif
 ifeq ($(DEBUG),1)
 __HCDEBUG_DEFINE_p = -DCONFIG_ENABLE_DEBUG
 endif
-ifeq ($(DEBUG),0)
-__HCDEBUG_DEFINE_p = 
+ifeq ($(DEBUG),1)
+__HCDEBUG_DEFINE_p = -DCONFIG_ENABLE_DEBUG
 endif
 ifeq ($(DEBUG),0)
 __HC_OPTIMIZE_ENABLE_0 = -O2
@@ -179,148 +216,150 @@ __HC_DEBUG_ENABLE_1 = -g
 endif
 
 
-all: ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE):
-	@mkdir -p ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)
+all: ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE):
+	@mkdir -p ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)
 
 ### Targets: ###
 
-all: ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/libft.a
+all: ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).a
 
 install: 
 
 uninstall: 
 
 clean: 
-	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/*.o
-	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/*.d
-	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/libft.a
+	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/*.o
+	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/*.d
+	rm -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).a
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/libft.a: $(FT_OBJECTS)
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).a: $(FT_OBJECTS)
 	rm -f $@
 	$(AR) rcu $@ $(FT_OBJECTS)
 	$(RANLIB) $@
-	cp -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/libft.a ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/libft.lib
+	cp -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).a ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).lib
+	mkdir -p ../../../uits_build/lib$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)
+	cp -f ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/libft$(HC_LIB64ARCH_DEFINE).lib ../../../uits_build/lib$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsystem.o: ./../../builds/unix/ftsystem.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsystem.o: ./../../builds/unix/ftsystem.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbbox.o: ./../../src/base/ftbbox.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbbox.o: ./../../src/base/ftbbox.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgxval.o: ./../../src/base/ftgxval.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgxval.o: ./../../src/base/ftgxval.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlcdfil.o: ./../../src/base/ftlcdfil.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlcdfil.o: ./../../src/base/ftlcdfil.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftmm.o: ./../../src/base/ftmm.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftmm.o: ./../../src/base/ftmm.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftotval.o: ./../../src/base/ftotval.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftotval.o: ./../../src/base/ftotval.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpatent.o: ./../../src/base/ftpatent.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpatent.o: ./../../src/base/ftpatent.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpfr.o: ./../../src/base/ftpfr.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftpfr.o: ./../../src/base/ftpfr.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsynth.o: ./../../src/base/ftsynth.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftsynth.o: ./../../src/base/ftsynth.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_fttype1.o: ./../../src/base/fttype1.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_fttype1.o: ./../../src/base/fttype1.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftwinfnt.o: ./../../src/base/ftwinfnt.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftwinfnt.o: ./../../src/base/ftwinfnt.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftxf86.o: ./../../src/base/ftxf86.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftxf86.o: ./../../src/base/ftxf86.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pcf.o: ./../../src/pcf/pcf.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pcf.o: ./../../src/pcf/pcf.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pfr.o: ./../../src/pfr/pfr.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pfr.o: ./../../src/pfr/pfr.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psaux.o: ./../../src/psaux/psaux.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psaux.o: ./../../src/psaux/psaux.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pshinter.o: ./../../src/pshinter/pshinter.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_pshinter.o: ./../../src/pshinter/pshinter.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psmodule.o: ./../../src/psnames/psmodule.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_psmodule.o: ./../../src/psnames/psmodule.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_raster.o: ./../../src/raster/raster.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_raster.o: ./../../src/raster/raster.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_sfnt.o: ./../../src/sfnt/sfnt.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_sfnt.o: ./../../src/sfnt/sfnt.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_truetype.o: ./../../src/truetype/truetype.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_truetype.o: ./../../src/truetype/truetype.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1.o: ./../../src/type1/type1.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1.o: ./../../src/type1/type1.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1cid.o: ./../../src/cid/type1cid.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type1cid.o: ./../../src/cid/type1cid.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type42.o: ./../../src/type42/type42.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_type42.o: ./../../src/type42/type42.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_winfnt.o: ./../../src/winfonts/winfnt.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_winfnt.o: ./../../src/winfonts/winfnt.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_autofit.o: ./../../src/autofit/autofit.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_autofit.o: ./../../src/autofit/autofit.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_bdf.o: ./../../src/bdf/bdf.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_bdf.o: ./../../src/bdf/bdf.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_cff.o: ./../../src/cff/cff.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_cff.o: ./../../src/cff/cff.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbase.o: ./../../src/base/ftbase.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbase.o: ./../../src/base/ftbase.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbitmap.o: ./../../src/base/ftbitmap.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftbitmap.o: ./../../src/base/ftbitmap.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftcache.o: ./../../src/cache/ftcache.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftcache.o: ./../../src/cache/ftcache.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftfstype.o: ./../../src/base/ftfstype.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftfstype.o: ./../../src/base/ftfstype.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgasp.o: ./../../src/base/ftgasp.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgasp.o: ./../../src/base/ftgasp.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftglyph.o: ./../../src/base/ftglyph.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftglyph.o: ./../../src/base/ftglyph.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgzip.o: ./../../src/gzip/ftgzip.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftgzip.o: ./../../src/gzip/ftgzip.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftinit.o: ./../../src/base/ftinit.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftinit.o: ./../../src/base/ftinit.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlzw.o: ./../../src/lzw/ftlzw.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftlzw.o: ./../../src/lzw/ftlzw.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftstroke.o: ./../../src/base/ftstroke.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftstroke.o: ./../../src/base/ftstroke.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftdebug.o: ./../../src/base/ftdebug.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_ftdebug.o: ./../../src/base/ftdebug.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
-../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/ft_smooth.o: ./../../src/smooth/smooth.c
+../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/ft_smooth.o: ./../../src/smooth/smooth.c
 	$(CC) -c -o $@ $(FT_CFLAGS) $(CPPDEPS) $<
 
 .PHONY: all install uninstall clean
 
 
 # Dependencies tracking:
--include ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ICC_DEFINE)/*.d
+-include ../../bin$(HC_LIB64ARCH_DEFINE)/linux_$(HC_DR_DEFINE)$(HC_DR_ARCH_POSTFIX_DEFINE)$(HC_DR_ICC_DEFINE)/*.d

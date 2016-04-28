@@ -8,6 +8,7 @@
 	</set>
 	
 	<lib id="ft">
+		<libname>ft$(HC_LIB64ARCH_DEFINE)</libname>
 		<define>UNA_PLATFORM_LINUX=1</define>
 		<define>$(HCDEBUG_DEFINE)</define>
 		<include>..$(DIRSEP)..$(DIRSEP)</include>
@@ -57,10 +58,14 @@
 			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)base$(DIRSEP)ftdebug.c
 			..$(DIRSEP)..$(DIRSEP)src$(DIRSEP)smooth$(DIRSEP)smooth.c
 		</sources>
+		<cflags>-fPIC -DPIC</cflags>
+		<cflags>$(HC_ARCH_CFLAGS_DEFINE)</cflags>
 		<optimize>$(HC_OPTIMIZE_ENABLE)</optimize>
 		<__hc-UnaBase>UnaBase</__hc-UnaBase>
 		<debug-info>$(HC_DEBUG_ENABLE)</debug-info>
 		<threading>multi</threading>
-		<postlink-command>cp -f $(BUILDDIR)$(DIRSEP)libft.a $(BUILDDIR)$(DIRSEP)libft.lib</postlink-command>
+		<postlink-command>cp -f $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE).a $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE).lib</postlink-command>
+		<postlink-command>mkdir -p $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>cp -f $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE).lib $(RELEASE_LIB_DIR)</postlink-command>
 	</lib>
 </makefile>
