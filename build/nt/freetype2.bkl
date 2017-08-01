@@ -3,7 +3,7 @@
 	<include file="../../../uits_build/build/nt/Common.bkl"/>
 
 	<lib id="libft" template="hc-common">
-		<libname>libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE)</libname>
+		<libname>libft$(HC_LIB64ARCH_DEFINE)$(HC_DR_POSTFIX_DEFINE)</libname>
 		<define>Strict</define>
 		<define>_CRT_SECURE_NO_DEPRECATE</define>
 		<define>_CRT_NONSTDC_NO_DEPRECATE</define>
@@ -67,7 +67,7 @@
 		<debug-runtime-libs>$(HC_RUNTIME_DEBUG_DEFINE)</debug-runtime-libs>
 		<threading>multi</threading>
 		<postlink-command>if not exist $(RELEASE_LIB_DIR) mkdir $(RELEASE_LIB_DIR)</postlink-command>
-		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE).lib $(RELEASE_LIB_DIR)</postlink-command>
-		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_DR_POSTFIX_DEFINE)$(HC_LIB64ARCH_DEFINE).pdb $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE)$(HC_DR_POSTFIX_DEFINE).lib $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE)$(HC_DR_POSTFIX_DEFINE).pdb $(RELEASE_LIB_DIR)</postlink-command>
 	</lib>
 </makefile>
