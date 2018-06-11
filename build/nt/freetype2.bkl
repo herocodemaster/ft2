@@ -69,5 +69,11 @@
 		<postlink-command>if not exist $(RELEASE_LIB_DIR) mkdir $(RELEASE_LIB_DIR)</postlink-command>
 		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE)$(HC_DR_POSTFIX_DEFINE).lib $(RELEASE_LIB_DIR)</postlink-command>
 		<postlink-command>copy /y $(BUILDDIR)$(DIRSEP)libft$(HC_LIB64ARCH_DEFINE)$(HC_DR_POSTFIX_DEFINE).pdb $(RELEASE_LIB_DIR)</postlink-command>
+		<postlink-command>if not exist $(RELEASE_INC_DIR)$(DIRSEP)freetype2 mkdir $(RELEASE_INC_DIR)$(DIRSEP)freetype2</postlink-command>
+		<postlink-command>if not exist $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype mkdir $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype</postlink-command>
+		<postlink-command>if not exist $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype$(DIRSEP)config mkdir $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype$(DIRSEP)config</postlink-command>
+		<postlink-command>copy /y ..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)*.h $(RELEASE_INC_DIR)$(DIRSEP)freetype2</postlink-command>
+		<postlink-command>copy /y ..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)*.h $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype</postlink-command>
+		<postlink-command>copy /y ..$(DIRSEP)..$(DIRSEP)include$(DIRSEP)freetype$(DIRSEP)config$(DIRSEP)*.h $(RELEASE_INC_DIR)$(DIRSEP)freetype2$(DIRSEP)freetype$(DIRSEP)config</postlink-command>
 	</lib>
 </makefile>
