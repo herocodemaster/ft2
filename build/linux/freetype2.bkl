@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <makefile>
-	<include file="../../../uits_build/build/linux/common.bkl"/>
+	<include file="common.bkl"/>
 	
 	<set var="HCDEBUG_DEFINE">
 		<if cond="DEBUG=='1'">CONFIG_ENABLE_DEBUG</if>
